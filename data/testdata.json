@@ -1,0 +1,48 @@
+{
+  "users": {
+    "admin": {
+      "username": "admin1@gmail.com",
+      "password": "1234",
+      "user_type": "Admin"
+    },
+    "manager": {
+      "username": "nayana.jayaraj@techversantinfo.com", 
+      "password": "1234",
+      "user_type": "Manager"
+    },
+    "employee": {
+      "username": "employee@trackora.com",
+      "password": "employee123", 
+      "user_type": "Employee"
+    }
+  },
+  "test_data": {
+    "search_term": "Selenium Python",
+    "departments": {
+      "new_department": {
+        "name": "Test Department",
+        "description": "Test Department Description",
+        "manager": "Admin"
+      }
+    },
+    "employees": {
+      "new_employee": {
+        "first_name": "Test",
+        "last_name": "Employee", 
+        "email": "test.employee@trackora.com",
+        "department": "Java AI",
+        "primary_skill": "Java",
+        "secondary_skill": "Python"
+      }
+    },
+    "projects": {
+      "new_project": {
+        "name": "Test Project",
+        "description": "Test Project Description",
+        "client_name": "Test Client",
+        "start_date": "01-01-2025",
+        "end_date": "31-12-2025"
+      }
+    }
+  }
+}

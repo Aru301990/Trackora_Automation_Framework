@@ -1,0 +1,30 @@
+# ---------------- Selenium-Pytest Framework Configuration ----------------
+
+# This file defines the default runtime settings for the framework.
+# You can override these values here without touching test code.
+
+# ---------------- Environment ----------------
+# Logical test environment (displayed in reports & metadata).
+# Common values: QA | Staging | Prod
+env: QA
+
+# ---------------- Browser Settings ----------------
+# Which browser to launch for tests.
+# Supported options: chrome | firefox
+browser: chrome
+
+# ---------------- Application Under Test ----------------
+# The base URL where every test starts.
+base_url: "https://trackora-qa.techversantinfotech.com/login"
+
+# ---------------- WebDriver Behavior ----------------
+# Global implicit wait time (in seconds) for element searches.
+implicit_wait: 10
+
+# ---------------- Cache / Session Handling ----------------
+# Controls whether the browser should start with a fresh cache/session or not.
+clear_cache: true
+
+# ---------------- Test Data Configuration ----------------
+# Default user type for login (can be overridden in tests)
+default_user_type: "manager"
