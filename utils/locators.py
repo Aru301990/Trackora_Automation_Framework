@@ -251,3 +251,41 @@ class ManagerEmployeesPageLocators:
     EMPLOYEE_LIST = (By.CLASS_NAME, "employee-list")
     EMPLOYEE_CARDS = (By.CLASS_NAME, "employee-card")
     PAGINATION_CONTROLS = (By.CLASS_NAME, "pagination")
+
+
+    # ==========================
+    # Manager Project Page Locators
+    # ==========================
+class MangerProjectPageLocators:
+    """Locators for Project Management page and actions."""
+    PAGE_TITLE = (By.XPATH, "//h3[contains(text(), 'Projects')]")
+    ADD_PROJECT_BUTTON = (By.XPATH, "//span[@class='px-2']")
+
+    # Filters for searching projects
+    SKILL_DROPDOWN = (By.ID, "skill-filter")
+    DEPARTMENT_DROPDOWN = (By.ID, "department-filter")
+    MANAGER_DROPDOWN = (By.ID, "manager-filter")
+    PROJECT_STATUS_DROPDOWN = (By.ID, "project-status-filter")
+    SUBMIT_BUTTON = (By.XPATH, "//button[contains(text(), 'Submit')]")
+    RESET_BUTTON = (By.XPATH, "//button[contains(text(), 'Reset')]")
+
+    # Project list and pagination
+    PROJECT_TABLE = (By.XPATH, "//body/div[@id='root']/div[@class='app-container d-flex']"
+    "/div[@class='main-content flex-grow-1 d-flex flex-column']/div[@class='page-content"
+    " flex-grow-1']/div[@class='container-"
+    "fluid']/div[@class='card']/div[@class='card-body card-body']/div[1]")
+    PROJECT_ROWS = (By.XPATH, "//table//tr")
+    PAGINATION_CONTROLS = (By.CLASS_NAME, "pagination")
+    NEXT_BUTTON = (By.XPATH, "//button[contains(text(), 'Next')]")
+    PREVIOUS_BUTTON = (By.XPATH, "//button[contains(text(), 'Previous')]")
+
+class ManagerAddProjectModalLocators:
+    """Locators for the Manager Add Project modal dialog."""
+    MODAL = (By.XPATH, "//div[@class='ant-modal-content']")
+    PROJECT_NAME_INPUT = (By.ID, "project-name")
+    PROJECT_DESCRIPTION_INPUT = (By.ID, "project-description")
+    CLIENT_NAME_INPUT = (By.ID, "client-name")
+    START_DATE_INPUT = (By.ID, "start-date")
+    END_DATE_INPUT = (By.ID, "end-date")
+    ADD_PROJECT_BUTTON = (By.XPATH, "(//span[contains(text(),'Add Project')])[3]")
+    CANCEL_BUTTON = (By.XPATH, "//span[normalize-space()='Cancel']")
