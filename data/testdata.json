@@ -37,7 +37,11 @@
     },
     "projects": {
       "new_project": {
-        "name": "Test Project",
+        "name": "TestProject",
+        "primary_owner": "Admin QA",
+        "secondary_owner": "Admin QA",
+        "domain": "Healthcare",
+        "department": "Java",
         "description": "Test Project Description",
         "client_name": "Test Client",
         "start_date": "01-01-2025",

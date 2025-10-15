@@ -262,12 +262,12 @@ class MangerProjectPageLocators:
     ADD_PROJECT_BUTTON = (By.XPATH, "//span[@class='px-2']")
 
     # Filters for searching projects
-    SKILL_DROPDOWN = (By.ID, "skill-filter")
-    DEPARTMENT_DROPDOWN = (By.ID, "department-filter")
-    MANAGER_DROPDOWN = (By.ID, "manager-filter")
-    PROJECT_STATUS_DROPDOWN = (By.ID, "project-status-filter")
-    SUBMIT_BUTTON = (By.XPATH, "//button[contains(text(), 'Submit')]")
-    RESET_BUTTON = (By.XPATH, "//button[contains(text(), 'Reset')]")
+    SKILL_DROPDOWN = (By.XPATH, "(//select[@class='form-select custom-select'])[5]")
+    DEPARTMENT_DROPDOWN = (By.XPATH,"//div[@class='card']//div[2]//select[1]")
+    MANAGER_DROPDOWN = (By.XPATH,"(//select[@class='form-select custom-select'])[4]")
+    PROJECT_STATUS_DROPDOWN = (By.XPATH,"(//select[@class='form-select custom-select'])[3]")
+    SUBMIT_BUTTON = (By.XPATH, "//button[normalize-space()='Submit']")
+    RESET_BUTTON = (By.XPATH, "//button[normalize-space()='Reset']")
 
     # Project list and pagination
     PROJECT_TABLE = (By.XPATH, "//body/div[@id='root']/div[@class='app-container d-flex']"
@@ -282,10 +282,15 @@ class MangerProjectPageLocators:
 class ManagerAddProjectModalLocators:
     """Locators for the Manager Add Project modal dialog."""
     MODAL = (By.XPATH, "//div[@class='ant-modal-content']")
-    PROJECT_NAME_INPUT = (By.ID, "project-name")
+    PROJECT_NAME_INPUT = (By.ID, "projectForm_projectName")
+    PRIMARY_OWNER_INPUT = (By.XPATH, "//span[@title='Select Primary Owner']")
+    SELECTED_PRIMARY_OWNER = (By.CSS_SELECTOR, "span.ant-select-selection-item")
+    SECONDARY_OWNER_INPUT = (By.XPATH, "//span[@title='Select Secondary Owner']")
+    DOMAIN_INPUT = (By.XPATH, "//span[@title='Select Domain']")
+    DEPARTMENT_INPUT = (By.XPATH, "//span[@title='Select Department']")
     PROJECT_DESCRIPTION_INPUT = (By.ID, "project-description")
     CLIENT_NAME_INPUT = (By.ID, "client-name")
-    START_DATE_INPUT = (By.ID, "start-date")
-    END_DATE_INPUT = (By.ID, "end-date")
+    START_DATE_INPUT = (By.XPATH, "//input[@id='projectForm_startDate']")
+    END_DATE_INPUT = (By.XPATH, "//input[@id='projectForm_endDate']")
     ADD_PROJECT_BUTTON = (By.XPATH, "(//span[contains(text(),'Add Project')])[3]")
     CANCEL_BUTTON = (By.XPATH, "//span[normalize-space()='Cancel']")

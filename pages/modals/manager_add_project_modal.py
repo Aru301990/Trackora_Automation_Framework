@@ -6,6 +6,11 @@ from pages.base_page import BasePage
 
 from utils.helpers import WaitHelpers
 from utils.locators import ManagerAddProjectModalLocators
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+import time
 
 class ManagerAddProjectModal(BasePage):
     """Add Project Modal class"""
@@ -23,10 +28,35 @@ class ManagerAddProjectModal(BasePage):
         """Wait for modal to appear"""
         return self.wait_helpers.wait_for_modal_to_appear(self.driver, self.locators.MODAL)
     
+    def get_all_status_elements(self):
+        # Adjust this selector based on your HTML
+        return self.driver.find_elements(By.CSS_SELECTOR, ".project-status")
+    
     def enter_project_name(self, project_name):
         """Enter project name"""
         self.send_keys_to_element(self.locators.PROJECT_NAME_INPUT, project_name)
-        
+
+    def get_text_from_element(self, locator, timeout=10):
+        element = WebDriverWait(self.driver, timeout).until(
+        EC.visibility_of_element_located(locator)
+        )
+        return element.text.strip()
+    
+    def get_selected_primary_owner(self):
+        """Get the selected primary owner text"""
+        return self.get_text_from_element(self.locators.SELECTED_PRIMARY_OWNER)
+    
+    def enter_primary_owner(self, primary_owner):
+        """Enter primary owner"""
+        self.select_dropdown_by_text(self.locators.PRIMARY_OWNER_INPUT, primary_owner)
+        time.sleep(1)  # Wait for selection to register
+    
+
+    
+
+
+    
+
     def enter_project_description(self, description):
         """Enter project description"""
         self.send_keys_to_element(self.locators.PROJECT_DESCRIPTION_INPUT, description)
@@ -55,6 +85,14 @@ class ManagerAddProjectModal(BasePage):
         """Fill all project details"""
         if project_data.get("name"):
             self.enter_project_name(project_data["name"])
+        if project_data.get("primary_owner"):
+            self.enter_primary_owner(project_data["primary_owner"])
+        if project_data.get("secondary_owner"):
+            self.enter_secondary_owner(project_data["secondary_owner"])
+        if project_data.get("domain"):
+            self.enter_domain(project_data["domain"])
+        if project_data.get("department"):
+            self.enter_department(project_data["department"])
         if project_data.get("description"):
             self.enter_project_description(project_data["description"])
         if project_data.get("client_name"):
